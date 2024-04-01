@@ -3,7 +3,7 @@ name: Run Python scripts on commit
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   run-scripts:
