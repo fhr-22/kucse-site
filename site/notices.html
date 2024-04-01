@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Notices - Dept. of CSE, KU.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>KUCSE - Notices</title>
+    
+</head>
+
+<body>
+    <div id="header">
+        <div class="container header_items">
+            <div class="logo">
+                <img src="static/logo.png" alt="logo">
+            </div>
+            <div>
+                <a href="https://klyuniv.ac.in/" target="_blank" rel="noopener noreferrer">
+                    <span class=" univ"> University of Kalyani </span><br>
+                </a>
+                <a href="/"> <span class="dept">Department of Computer Science &&nbsp;Engineering</span><br></a>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="notices.html">NOTICES</a>
+        <a href="people.html">PEOPLE</a>
+        <a href="courses.html">COURSES</a>
+        <a href="highlights.html">HIGHLIGHTS</a>
+    </nav>
+
+    <div id="main" class="container">
+
+        <div id="body">
+            
+
+<h1>Notices</h1>
+
+
+<ul>
+
+    
+    <li>27-03-24 :: <a href="notice_files/Demo Notice.pdf"> Demo Notice</a> </li>
+    
+</ul>
+
+
+
+
+<script src="static/tiny-toast.js"></script>
+<script>
+
+    var new_data = ["Demo Notice"]; // populated when template is rendered
+
+
+    function compare_lists(ls1, ls2) {
+        return ls2.filter(item => !ls1.includes(item)).length;
+    }
+
+    onload = (e) => {
+
+        if (localStorage.getItem('visited') === 'true') { // not first visit
+
+            var old_list = JSON.parse(localStorage.getItem("prev_notices"));
+            var count_new_notices = compare_lists(old_list, new_data);
+
+            if (count_new_notices > 0) {
+                toast.success(`${count_new_notices} new notice(s) since last visit.`, 3000);
+            }
+            else {
+                toast.success("No new notices since last visit.", 3000);
+            }
+        }
+        else { // first visit
+            toast.success("First visit? Consider bookmarking and check regularly for updates.", 6000);
+            localStorage.setItem('visited', 'true');
+        }
+
+        localStorage.setItem("prev_notices", JSON.stringify(new_data));
+
+    };
+
+</script>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h2> Contact Us</h2>
+                <p>
+                    <b>Prof. Dr. Kalyani Mali </b> <br>
+                    Head of the Department<br><br>
+
+                    <b> E-Mail : </b> <br> hodcomputer_sci@klyuniv.ac.in <br>
+
+                    <b>Departmental Phone No.: </b> <br>
+                    Extn: 303/304, Direct: +91-33-2580-9615 <br><br>
+
+                    <b>Address :</b><br>
+                    Department of Computer Science and Engineering<br>
+                    Faculty of Engineering, Technology and Management<br>
+                    University of Kalyani<br>
+                    <a href="https://goo.gl/maps/Ev6YLTayWPFABkzD7">View in Google Maps</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
